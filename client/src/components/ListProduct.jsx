@@ -132,33 +132,18 @@ function ListProduct() {
               />
             </Form.Group>
           </InputGroup>
-          {user ? (
-            <>
-              <Button
-                variant="outline-success fw-bold"
-                className="text-right mb-2"
-                onClick={() => {
-                  setShowAddProduct(true);
-                }}
-                style={{ width: "180px", height: "45px" }}
-              >
-                Tambah Produk
-              </Button>
-            </>
-          ) : (
-            <>
-              <Button
-                variant="outline-success fw-bold"
-                className="text-right mb-2"
-                onClick={() => {
-                  openLoginModal();
-                }}
-                style={{ width: "180px", height: "45px" }}
-              >
-                Tambah Produk
-              </Button>
-            </>
-          )}
+          <>
+            <Button
+              variant="outline-success fw-bold"
+              className="text-right mb-2"
+              onClick={() => {
+                setShowAddProduct(true);
+              }}
+              style={{ width: "180px", height: "45px" }}
+            >
+              Tambah Produk
+            </Button>
+          </>
         </div>
         <Table
           striped
@@ -178,85 +163,47 @@ function ListProduct() {
               <th>Action</th>
             </tr>
           </thead>
-          {filteredProducts?.length == 0 ? (
-            <>
-              <div>
-                <p className="text-danger text-center mt-4 fw-bold">
-                  Produk dengan nama tersebut tidak tersedia
-                </p>
-              </div>
-            </>
-          ) : (
-            <>
-              <tbody>
-                {currentProducts?.map((product, index) => (
-                  <tr key={product.id} className="text-center">
-                    <td>{indexOfFirstProduct + index + 1}</td>
-                    <td>
-                      <img
-                        src={product.image}
-                        alt="product"
-                        style={{ width: "70px", height: "70px" }}
-                      />
-                    </td>
-                    <td>{product.name}</td>
-                    <td>{formattedPrice(product.sell_price)}</td>
-                    <td>{formattedPrice(product.buy_price)}</td>
-                    <td>{product.stock}</td>
-                    <td>
-                      {user ? (
-                        <>
-                          <img
-                            src={Edit}
-                            className="me-3"
-                            width={"25px"}
-                            alt="edit"
-                            onClick={() => {
-                              setShowEditProduct(true);
-                              setIdProduct(product.id);
-                            }}
-                            style={{ cursor: "pointer" }}
-                          />
-                          <img
-                            src={Delete}
-                            className="me-3"
-                            width={"30px"}
-                            alt="edit"
-                            onClick={() => handleDelete(product.id)}
-                            style={{ cursor: "pointer" }}
-                          />
-                        </>
-                      ) : (
-                        <>
-                          {" "}
-                          <img
-                            src={Edit}
-                            className="me-3"
-                            width={"25px"}
-                            alt="edit"
-                            onClick={() => {
-                              openLoginModal();
-                            }}
-                            style={{ cursor: "pointer" }}
-                          />
-                          <img
-                            src={Delete}
-                            className="me-3"
-                            width={"30px"}
-                            alt="edit"
-                            onClick={() => {
-                              openLoginModal();
-                            }}
-                            style={{ cursor: "pointer" }}
-                          />
-                        </>
-                      )}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </>
-          )}
+          <>
+            <tbody>
+              {currentProducts?.map((product, index) => (
+                <tr key={product.id} className="text-center">
+                  <td>{indexOfFirstProduct + index + 1}</td>
+                  <td>
+                    <img
+                      src={product.image}
+                      alt="product"
+                      style={{ width: "70px", height: "70px" }}
+                    />
+                  </td>
+                  <td>{product.name}</td>
+                  <td>{formattedPrice(product.sell_price)}</td>
+                  <td>{formattedPrice(product.buy_price)}</td>
+                  <td>{product.stock}</td>
+                  <td>
+                    <img
+                      src={Edit}
+                      className="me-3"
+                      width={"25px"}
+                      alt="edit"
+                      onClick={() => {
+                        setShowEditProduct(true);
+                        setIdProduct(product.id);
+                      }}
+                      style={{ cursor: "pointer" }}
+                    />
+                    <img
+                      src={Delete}
+                      className="me-3"
+                      width={"30px"}
+                      alt="edit"
+                      onClick={() => handleDelete(product.id)}
+                      style={{ cursor: "pointer" }}
+                    />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </>
         </Table>
         <Pagination className="d-flex justify-content-center align-items-center  pb-4">
           {Array.from({ length: totalPages }).map((_, index) => (

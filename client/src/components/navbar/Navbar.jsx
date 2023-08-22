@@ -79,7 +79,10 @@ export const Navigation = () => {
                     style={{ width: "17rem", height: "5rem" }}
                     onClick={Logout}
                   >
-                    <div className="d-flex align-items-center ps-4 gap-3">
+                    <div
+                      className="d-flex align-items-center ps-4 gap-3"
+                      style={{ cursor: "pointer" }}
+                    >
                       <img
                         src={logout}
                         className="object-fit-cover"
