@@ -19,7 +19,6 @@ import search from "../assets/img/searching.png";
 import ModalAddProduct from "../components/modal/ModalAddProduct";
 import ModalEditProduct from "../components/modal/ModalEditProduct";
 import ModalDelete from "../components/modal/ModalDelete";
-import Login from "./modal/Login";
 
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -217,8 +216,6 @@ function ListProduct() {
           ))}
         </Pagination>
       </Container>
-
-      <Login show={showLogin} showLogin={setShowLogin} />
 
       <ModalAddProduct
         show={showAddProduct}

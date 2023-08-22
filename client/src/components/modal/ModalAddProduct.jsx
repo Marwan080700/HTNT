@@ -73,6 +73,7 @@ function ModalAddProduct({ show, showAddProduct }) {
                 name="name"
                 onChange={handleChange}
                 placeholder="Nama Produk"
+                required
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formGroupPassword">
@@ -82,6 +83,7 @@ function ModalAddProduct({ show, showAddProduct }) {
                 name="buy_price"
                 onChange={handleChange}
                 placeholder="Harga Beli"
+                required
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formGroupPassword">
@@ -91,6 +93,7 @@ function ModalAddProduct({ show, showAddProduct }) {
                 name="sell_price"
                 onChange={handleChange}
                 placeholder="Harga Jual"
+                required
               />
             </Form.Group>
 
@@ -101,11 +104,17 @@ function ModalAddProduct({ show, showAddProduct }) {
                 name="stock"
                 onChange={handleChange}
                 placeholder="Stok"
+                required
               />
             </Form.Group>
             <Form.Group controlId="formFile" className="mb-3">
               <Form.Label>Gambar Produk</Form.Label>
-              <Form.Control type="file" onChange={handleChange} name="image" />
+              <Form.Control
+                type="file"
+                onChange={handleChange}
+                name="image"
+                required
+              />
             </Form.Group>
             <Button
               variant="success"
